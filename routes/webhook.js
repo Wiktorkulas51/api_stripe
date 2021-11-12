@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const stripe = require("stripe")(
-  "sk_test_51Jru7nG0BKaAS1EwQrikoNaA08IrMSSvvIE5pLel6vc0OXovnVOqBUmZYpODDPR5L6DhsWgJmxD7ZW8Xbr8ANFEa00wMcz1yvm"
-);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
+
 const body_parser = require("body-parser");
 //webhook
 router.post(
@@ -12,7 +11,7 @@ router.post(
     let data;
     let eventType;
     // Check if webhook signing is configured.
-    const webhookSecret = "whsec_20UxIBxQpx0Pmp7USSm3wicZQRXQFZWd";
+    const webhookSecret = process.env.WEBHOOKSECKRET;
 
     if (webhookSecret) {
       // Retrieve the event by verifying the signature using the raw body and secret.

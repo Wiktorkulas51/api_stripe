@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-const port = 3030;
+const env = require("dotenv").config();
+const port = process.env.PORT || 3030;
+
 // const stripe = require("stripe")("sk_test_YOUR_KEY");
 
 const apiRoutes = require("./routes/api");

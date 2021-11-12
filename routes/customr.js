@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const stripe = require("stripe")(
-  "sk_test_51Jru7nG0BKaAS1EwQrikoNaA08IrMSSvvIE5pLel6vc0OXovnVOqBUmZYpODDPR5L6DhsWgJmxD7ZW8Xbr8ANFEa00wMcz1yvm"
-);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 //customer
 router.get("/", async (req, res) => {
